@@ -1,0 +1,99 @@
+/* Estilos para el contenedor */
+.containerI {
+    width: 80%;
+    margin: 10px auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    background-color: #e6e6e6;
+    border-radius: 11px;
+  box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.15);
+
+}
+
+/* Estilos para el título */
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+/* Estilos para la tabla */
+.solicitudes-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+/* Estilos para las celdas de encabezado */
+.solicitudes-table th {
+    background-color: #FFC0CB;
+    color: rgb(0, 0, 0);
+    padding: 10px;
+    text-align: left;
+    border-bottom: 2px solid #ddd;
+    border-radius: 4px;
+}
+
+/* Estilos para las celdas de cuerpo */
+.solicitudes-table td {
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Estilos para las filas pares */
+.solicitudes-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* Estilos para las filas al pasar el cursor */
+.solicitudes-table tr:hover {
+    background-color: #ddd;
+}
+
+/* From Uiverse.io by garerim */
+.inputI {
+    margin: 6px;
+    background-color: white;
+    border: none;
+    outline: none;
+    max-width: 190px;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 10px;
+    box-shadow: inset 2px 3px 5px rgb(5, 5, 5);
+    color: #fff;
+}
+
+button {
+    --button_radius: 0.75em;
+    --button_color: #6c4ce0;
+    --button_outline_color: #000000;
+    font-size: 17px;
+    font-weight: bold;
+    border: none;
+    border-radius: var(--button_radius);
+    background: var(--button_outline_color);
+    background-color: none;
+}
+
+.button_top {
+    display: block;
+    box-sizing: border-box;
+    border: 2px solid var(--button_outline_color);
+    border-radius: var(--button_radius);
+    padding: 0.75em 1.5em;
+    background: var(--button_color);
+    color: var(--button_outline_color);
+    transform: translateY(-0.2em);
+    transition: transform 0.1s ease;
+}
+
+button:hover .button_top {
+    /* Pull the button upwards when hovered */
+    transform: translateY(-0.33em);
+}
+
+button:active .button_top {
+    /* Push the button downwards when pressed */
+    transform: translateY(0);
+}
+

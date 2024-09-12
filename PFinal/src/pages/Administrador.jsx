@@ -1,8 +1,9 @@
 import React from "react";
-import GridExample from "../components/productos";
 import Navbar from "../components/NavBar";
+import Crear from "../components/CrearProducto";
+import TablaInventario from "../components/Inventario";
 
-function Products() {
+function Inventario() {
     return (
         <div>
             <Navbar />
@@ -13,11 +14,15 @@ function Products() {
             </div>
             <br />
             <div>
-            <GridExample />
+                <Crear/>
+            </div>
+            <br />
+            <div>
+                <TablaInventario/>
             </div>
             
         </div>
     )
 }
-export default Products
+export default Inventario
 

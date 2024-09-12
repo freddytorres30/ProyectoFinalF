@@ -4,7 +4,7 @@ import Row from 'react-bootstrap/Row';
 
 function GridExample() {
   return (
-    <Row xs={1} md={2} className="g-4">
+    <Row xs={1} md={3} className="g-4">
       {Array.from({ length: 6 }).map((_, idx) => (
         <Col key={idx} className="d-flex justify-content-center">
           <Card style={{ width: '18rem', height: 'auto' }}> {/* Ajusta el ancho y alto según sea necesario */}

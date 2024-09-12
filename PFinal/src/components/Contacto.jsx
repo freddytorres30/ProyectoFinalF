@@ -1,4 +1,3 @@
-import FluidExample from "./ImagenPrincipal"
 import '../style/Contacto.css'
 
 
