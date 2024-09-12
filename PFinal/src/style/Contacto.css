@@ -1,0 +1,223 @@
+.sobreN {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(140, 232, 255);
+    width: 100%;
+    height: 100px;
+}
+
+.contacoCont {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.imgContacto {
+    border-radius: 30px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+
+}
+
+/*formulario*/
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.container h1 {
+    margin: 30px 20px 5px 20px;
+    color: #000000;
+    letter-spacing: -1px;
+    align-items: center;
+    padding-left: 30px;
+    font-family: PT Sans, sans-serif;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: bold;
+    display: flex;
+    position: relative;
+    justify-content: center;
+}
+.linea{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 4px;
+    width: 460px;
+    background: linear-gradient(90deg, #ffffff, #ff8196, #ffffff);
+    margin: 0px 80px 0px 80px;
+}
+@media (max-width: 600px) {
+    .linea {
+        width: 95%; 
+        margin: 0 2.5%; 
+    }
+}
+.linea2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 4px;
+    width: 100%;
+    background: linear-gradient(90deg, #FFC0CB, #ff8196, #FFC0CB);
+    
+}
+.borde {
+    border: 1px solid #FFC0CB;
+    border-radius: 20px;
+    padding: 30px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    border: 1px solid #69696965;
+    border-radius: 10px;
+    outline: 0;
+    padding: 10px 10px 20px;
+    color: rgb(0, 0, 0);
+    cursor: text;
+    font-size: .9em;
+    top: 15px;
+    left: 10px;
+}
+.consulta input{
+    height: 120px;
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    border: 1px solid #69696965;
+    border-radius: 10px;
+    outline: 0;
+    padding: 10px 10px 20px;
+    color: rgb(0, 0, 0);
+    cursor: text;
+    font-size: .9em;
+    top: 15px;
+    left: 10px;
+}
+
+.form-group textarea {
+    color: black;
+}
+
+.form-group input[type="checkbox"] {
+    width: auto;
+    cursor: pointer;
+}
+
+.form-group textarea {
+    height: 150px;
+    overflow-y: auto;
+    resize: vertical;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 10px;
+    text-align: justify;
+}
+
+.check {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+.btn {
+    display: flex;
+    justify-content: center;
+}
+
+.submit-btn {
+    border: none;
+    outline: none;
+    background-color: royalblue;
+    padding: 10px;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 16px;
+    transform: .3s ease;
+    width: 200px;
+    cursor: pointer;
+}
+
+.submit-btn:hover {
+    background-color: #0056b3;
+}
+
+.check label {
+    margin-left: 10px;
+    margin-bottom: 0px;
+    font-size: 16px;
+}
+
+.error-message {
+    color: red;
+    font-size: small;
+    display: none;
+}
+
+.vacios {
+    color: red;
+    font-size: small;
+    display: none;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Fondo oscuro con opacidad */
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%;
+    /* Ajusta el ancho del modal */
+    max-width: 500px;
+    /* Tamaño máximo del modal */
+    border-radius: 8px;
+    /* Bordes redondeados */
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+}
