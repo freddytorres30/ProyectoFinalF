@@ -6,8 +6,8 @@ function GridExample() {
   return (
     <Row xs={1} md={2} className="g-4">
       {Array.from({ length: 6 }).map((_, idx) => (
-        <Col key={idx}>
-          <Card>
+        <Col key={idx} className="d-flex justify-content-center">
+          <Card style={{ width: '18rem', height: 'auto' }}> {/* Ajusta el ancho y alto según sea necesario */}
             <Card.Img variant="top" src="https://www.hola.com/horizon/landscape/918cb28d3a78-pan-leche-t.jpg" />
             <Card.Body>
               <Card.Title>Card</Card.Title>
