@@ -9,7 +9,7 @@ function FormularioContacto() {
             <div className="borde">
                 <form id="formPc"/>
                     <div className="form-group">
-                        <label htmlFor="nombre">Nombre:</label>
+                        <label htmlFor="nombre">Nombre Completo:</label>
                         <input type="text" id="nombre" name="nombre" />
                     </div>
                     <div className="form-group">
@@ -17,29 +17,25 @@ function FormularioContacto() {
                         <input type="email" id="correo" name="correo" />
                     </div>
                     <div className="form-group">
-                        <label htmlFor="sede">Sede:</label>
+                        <label htmlFor="numero">Número de teléfono:</label>
+                        <input type="email" id="correo" name="correo" />
+                    </div>
+                    <div className="form-group">
+                        <label htmlFor="sede">Cómo prefiere ser contactada?:</label>
                         <select id="sede" name="sede">
-                            <option>Seleccionar Sede</option>
-                            <option>Sede El Huerto</option>
-                            <option>Sede Hub Santa Ana</option>
-                            <option>Sede Edunamica Nosara</option>
+                            <option>Whatsapp</option>
+                            <option>Llamada</option>
+                            <option>Correo electrónico</option>
+                            
                         </select>
                     </div>
                     <div className="form-group">
-                        <label htmlFor="fechaSalida">Fecha de salida:</label>
-                        <input type="date" id="fechaSalida" name="fechaSalida" />
+                        <label htmlFor="fecha">Fecha de Preferencia para Contacto::</label>
+                        <input type="date" id="fecha" name="fecha" />
                     </div>
                     <div className="consulta">
                         <label htmlFor="codigo">Consulta:</label>
                         <input type="text" id="codigo" name="codigo" />
-                    </div>
-                    <div className="check">
-                        <input type="checkbox" id="confirmacion" name="confirmacion" />
-                        <label htmlFor="confirmacion">He leído y acepto las condiciones anteriores.</label>
-                    </div>
-                    <div>
-                        <span id="error-message" className="error-message">Por favor, acepta los términos y
-                            condiciones.</span>
                     </div>
                     <div>
                         <span id="vacios" className="vacios">Completa todos los datos</span>

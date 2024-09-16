@@ -1,4 +1,4 @@
-/* Estilos para el contenedor */
+/* General styles */
 .containerI {
     width: 80%;
     margin: 10px auto;
@@ -6,24 +6,20 @@
     font-family: Arial, sans-serif;
     background-color: #e6e6e6;
     border-radius: 11px;
-  box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.15);
-
+    box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.15);
 }
 
-/* Estilos para el título */
 h1 {
     text-align: center;
     color: #333;
 }
 
-/* Estilos para la tabla */
 .solicitudes-table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
 }
 
-/* Estilos para las celdas de encabezado */
 .solicitudes-table th {
     background-color: #FFC0CB;
     color: rgb(0, 0, 0);
@@ -33,23 +29,19 @@ h1 {
     border-radius: 4px;
 }
 
-/* Estilos para las celdas de cuerpo */
 .solicitudes-table td {
     padding: 8px;
     border-bottom: 1px solid #ddd;
 }
 
-/* Estilos para las filas pares */
 .solicitudes-table tr:nth-child(even) {
     background-color: #f2f2f2;
 }
 
-/* Estilos para las filas al pasar el cursor */
 .solicitudes-table tr:hover {
     background-color: #ddd;
 }
 
-/* From Uiverse.io by garerim */
 .inputI {
     margin: 6px;
     background-color: white;
@@ -61,18 +53,6 @@ h1 {
     border-radius: 10px;
     box-shadow: inset 2px 3px 5px rgb(5, 5, 5);
     color: #fff;
-}
-
-button {
-    --button_radius: 0.75em;
-    --button_color: #6c4ce0;
-    --button_outline_color: #000000;
-    font-size: 17px;
-    font-weight: bold;
-    border: none;
-    border-radius: var(--button_radius);
-    background: var(--button_outline_color);
-    background-color: none;
 }
 
 .button_top {
@@ -88,12 +68,184 @@ button {
 }
 
 button:hover .button_top {
-    /* Pull the button upwards when hovered */
     transform: translateY(-0.33em);
 }
 
 button:active .button_top {
-    /* Push the button downwards when pressed */
     transform: translateY(0);
 }
 
+/* ProductSidebar.css */
+.product-sidebar {
+    width: 250px;
+    padding: 20px;
+    background-color: #f4f4f4;
+    border-right: 1px solid #ddd;
+}
+
+.product-sidebar h2 {
+    margin-top: 0;
+    font-size: 18px;
+}
+
+.product-sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.product-sidebar li {
+    margin-bottom: 10px;
+}
+
+.product-sidebar button {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    color: #333;
+    background-color: #ddd;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.product-sidebar button:hover {
+    background-color: #ccc;
+}
+
+.containerInv {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.contentInv {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.header {
+    padding: 10px;
+}
+
+.sobreN h1 {
+    margin: 0;
+}
+
+.main-content {
+    display: flex;
+    flex: 1;
+}
+
+.main-content>* {
+    padding: 10px;
+}
+
+ProductSidebar {
+    flex: 0 0 250px;
+    background-color: #f4f4f4;
+}
+
+TablaInventario {
+    flex: 1;
+    background-color: #fff;
+    overflow: auto;
+}
+
+button {
+    width: 150px;
+    padding: 10px;
+    font-size: 16px;
+    color: #333;
+    background-color: #ddd;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+/* Responsive table */
+.table-responsive {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch; /* For better scrolling on touch devices */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #f4f4f4;
+}
+
+/* Mobile-specific adjustments */
+@media (max-width: 600px) {
+    .solicitudes-table, .table-responsive table {
+        display: block;
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .solicitudes-table thead {
+        display: none;
+    }
+
+    .solicitudes-table tr {
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    .solicitudes-table td {
+        display: block;
+        text-align: right;
+        position: relative;
+        padding-left: 50%;
+        border: none;
+        box-sizing: border-box;
+    }
+
+    .solicitudes-table td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 0;
+        width: 45%;
+        padding-left: 10px;
+        font-weight: bold;
+        white-space: nowrap;
+    }
+}
+/* src/components/ProductModal.css */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 400px;
+  }
+  
+  .modal-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  

@@ -12,5 +12,14 @@
       "email": "f@gmail.com",
       "password": "1234"
     }
+  ],
+  "productos": [
+    {
+      "id": "f7cf",
+      "nombre": "baguette",
+      "cantidad": "65",
+      "precio": "750",
+      "tipo": "pan"
+    }
   ]
 }

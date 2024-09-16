@@ -36,7 +36,7 @@ function FormLogin() {
         if (user) {
             alert('Login exitoso');
             localStorage.setItem('Autenticado',true)
-            navigate('/');
+            navigate('/Admin');
         } else {
             alert('Datos incorrectos');
         }

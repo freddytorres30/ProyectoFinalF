@@ -11,7 +11,7 @@ function Navbar() {
 
   return (
     <nav className="navbar">
-      <div className="navbar-title">Panadería</div>
+      <div className="navbar-title">Panadería Riojalandia</div>
       <div className={`navbar-links ${menuOpen ? 'active' : ''}`}>
         <a href="/">Inicio</a>
         <a href="#services">Servicios</a>

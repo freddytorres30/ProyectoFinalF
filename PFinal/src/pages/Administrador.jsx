@@ -1,28 +1,26 @@
 import React from "react";
 import Navbar from "../components/NavBar";
-import Crear from "../components/CrearProducto";
+import '../style/Admin.css'
 import TablaInventario from "../components/Inventario";
+import ProductSidebar from "../components/AsideInventario";
 
 function Inventario() {
     return (
-        <div>
+        <div className="containerInv">
             <Navbar />
-            <div className="contacoCont">
+            <div>
+
                 <div className="linea2"></div>
                 <div className="sobreN"><h1>PRODUCTOS</h1></div>
                 <div className="linea"></div>
+
+                <div className="main-content">
+                    <ProductSidebar />
+                    <TablaInventario />
+                </div>
             </div>
-            <br />
-            <div>
-                <Crear/>
-            </div>
-            <br />
-            <div>
-                <TablaInventario/>
-            </div>
-            
         </div>
     )
 }
-export default Inventario
 
+export default Inventario;

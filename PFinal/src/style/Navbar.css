@@ -1,24 +1,31 @@
+/* Barra de navegación principal */
 .navbar {
     display: flex;
     justify-content: flex-end;
     align-items: center;
     padding: 10px 20px;
     background-color: #FFC0CB;
+    /* Rosa claro */
     color: #000000;
+    /* Negro para el texto */
     position: relative;
     flex-wrap: wrap;
     height: 80px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* Agrega una sombra sutil para profundidad */
 }
 
+/* Título de la barra de navegación */
 .navbar-title {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+
     position: absolute;
     left: 20px;
-    font-size: 1.5em;
-    font-weight: bold;
-    background-color: #ffffff;
-    border-radius: 20px;
-    padding: 6px;
+    
+    border-radius: 10px;
+    font-family: "Pinyon Script", cursive;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 50px;
 }
 
 .navbar-links {
@@ -26,31 +33,57 @@
     display: flex;
     gap: 20px;
     flex-wrap: wrap;
-    font-size: 22px;
+    font-size: 18px;
     color: #000000;
-    text-decoration: none;
-    background-color: #ffffff;
-    border-radius: 20px;
-    padding: 6px;
-    
 }
 
 .navbar-links a {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
     color: #000000;
     text-decoration: none;
     font-size: 1em;
+    padding: 6px 12px;
+    border-radius: 6px;
+    transition: background-color 0.3s, color 0.3s, transform 0.3s, box-shadow 0.3s;
+    position: relative;
 }
 
 .navbar-links a:hover {
-    text-decoration: underline;
+    text-decoration: none;
+    background-color: #FFC0CB;
+    color: #ffffff;
 }
+
+.navbar-links a::after {
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #FF1493;
+    /* Color rosa más oscuro para el subrayado */
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+/* Efecto de subrayado animado al pasar el cursor */
+.navbar-links a:hover::after {
+    transform: scaleX(1);
+    /* Expande el subrayado al pasar el cursor */
+}
+
 .menu-toggle {
     display: none;
     font-size: 1.5em;
-    color: #fff;
+    color: #000000;
+    /* Color negro para el icono del menú */
+    cursor: pointer;
+    transition: color 0.3s;
+    /* Transición suave para el color */
 }
 
+/* Estilos específicos para pantallas pequeñas */
 @media (max-width: 768px) {
     .navbar {
         justify-content: space-between;
@@ -60,6 +93,8 @@
     .navbar-title {
         position: static;
         font-size: 1.2em;
+        background-color: transparent;
+        box-shadow: none;
     }
 
     .navbar-links {
@@ -67,7 +102,8 @@
         flex-direction: column;
         width: 100%;
         text-align: center;
-        background-color: #3131319d;
+        background-color: #313131;
+        border-top: 2px solid #FFC0CB;
     }
 
     .navbar-links.active {
@@ -80,7 +116,8 @@
 
     .menu-toggle {
         display: block;
-        cursor: pointer;
+        color: #000000;
+
+        justify-content: flex-end;
     }
 }
-

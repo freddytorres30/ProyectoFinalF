@@ -1,8 +1,8 @@
 .carousel-item img {
-    height: 400px;
+    height: 500px;
     object-fit: cover;
 }
 
 .carousel {
-    height: 400px;
+    height: 500px;
 }
