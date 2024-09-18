@@ -12,6 +12,7 @@ function Contacto() {
             <Navbar/>
             <Contact/>
             <FluidExample/>
+            
             <FormularioContacto/>
         </div>
     )

@@ -1,0 +1,9 @@
+.promo{
+    display: flex;
+    border: solid #ff8196 1px;
+    border-radius: 5px;
+    background-color: #FFC0CB;
+}
+p{
+    font-size: 22px;
+}

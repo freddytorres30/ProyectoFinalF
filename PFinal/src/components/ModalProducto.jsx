@@ -61,7 +61,6 @@ const ProductModal = ({ isOpen, onClose, product, onSave }) => {
     };
 
     const handleCancel = () => {
-        // Clear form data and close the modal
         setFormData({
             nombre: '',
             cantidad: '',
@@ -70,6 +69,20 @@ const ProductModal = ({ isOpen, onClose, product, onSave }) => {
         });
         onClose();
     };
+
+    const convertirBase64=(archivos)=>{
+        Array.from(archivos).forEach(archivo=>{
+            var reader=new FileReader()
+            reader.readAsDataURL(archivo)
+            reader.onload=function(){
+                var arrayAuxiliar=[]
+                var base64= reader.result
+                //console.log(base64);             
+                arrayAuxiliar=base64.split(',')
+                console.log(arrayAuxiliar[1]);
+            }
+        })
+    }
 
     if (!isOpen) return null;
 
@@ -83,9 +96,7 @@ const ProductModal = ({ isOpen, onClose, product, onSave }) => {
                         <input
                             type="text"
                             name="nombre"
-                            value={formData.nombre}
-                            onChange={handleChange}
-                            required
+                            value={formData.nombre} onChange={handleChange}  required
                         />
                     </label>
                     <label>
@@ -122,6 +133,12 @@ const ProductModal = ({ isOpen, onClose, product, onSave }) => {
                             value={formData.precio}
                             onChange={handleChange}
                             required
+                        />
+                    </label>
+                    <label>
+                        Imagen:
+                        <input
+                            type='file' multiple onChange={(e)=>convertirBase64(e.target.files)}
                         />
                     </label>
 

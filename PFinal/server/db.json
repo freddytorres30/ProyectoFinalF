@@ -15,7 +15,28 @@
   ],
   "productos": [
     {
-      "id": "f7cf",
+      "id": "b352",
+      "nombre": "pequeño",
+      "cantidad": "11",
+      "precio": "500",
+      "tipo": "pan dulce"
+    },
+    {
+      "id": "1700",
+      "nombre": "pañuelo",
+      "cantidad": "12",
+      "precio": "700",
+      "tipo": "repostería"
+    },
+    {
+      "id": "9193",
+      "nombre": "grande con crema",
+      "cantidad": "15",
+      "precio": "1000",
+      "tipo": "pan dulce"
+    },
+    {
+      "id": "b87d",
       "nombre": "baguette",
       "cantidad": "65",
       "precio": "750",

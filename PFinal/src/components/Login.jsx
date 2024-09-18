@@ -88,7 +88,7 @@ function FormLogin() {
                             Log in
                         </button>
                         <div>
-                            <p>No tienes cuenta?, Click <Link to="/Register">aquí</Link></p>
+                            <p>No tienes cuenta?, Click <Link to="/Registro">aquí</Link></p>
                         </div>
 
                         {error && <p className="error">{error}</p>}
