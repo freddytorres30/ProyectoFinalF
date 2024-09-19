@@ -13,6 +13,13 @@
     align-items: center;
     flex-direction: column;
 }
+.mapaCont {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 30px;
+}
 
 .imgContacto {
     border-radius: 30px;
@@ -24,6 +31,22 @@
 }
 .textAbout{
     width: 800px;
+    display: flex;
+    border: solid #ff8196 3px;
+    border-radius: 30px;
+    padding: 30px;
+}
+.textContact{
+    width: 800px;
+    display: flex;
+    border: solid #ff8196 3px;
+    border-radius: 30px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+}
+.textContact a{
+    text-decoration: none;
 }
 
 /*formulario*/

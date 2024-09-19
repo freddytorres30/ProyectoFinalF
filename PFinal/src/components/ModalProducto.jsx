@@ -1,4 +1,4 @@
-import '../style/Admin.css'
+import '../style/Admin.css';
 import React, { useState, useEffect } from 'react';
 import postProducts from '../services/PostProducts';
 
@@ -8,6 +8,8 @@ const ProductModal = ({ isOpen, onClose, product, onSave }) => {
         cantidad: '',
         precio: '',
         tipo: '',
+        descripcion: '',
+        imagenes: [], 
     });
 
     useEffect(() => {
@@ -17,6 +19,8 @@ const ProductModal = ({ isOpen, onClose, product, onSave }) => {
                 cantidad: product.cantidad || '',
                 precio: product.precio || '',
                 tipo: product.tipo || '',
+                descripcion: product.descripcion || '',
+                imagenes: product.imagenes || [], 
             });
         } else {
             setFormData({
@@ -24,6 +28,8 @@ const ProductModal = ({ isOpen, onClose, product, onSave }) => {
                 cantidad: '',
                 precio: '',
                 tipo: '',
+                descripcion: '',
+                imagenes: [], 
             });
         }
     }, [product]);
@@ -33,6 +39,26 @@ const ProductModal = ({ isOpen, onClose, product, onSave }) => {
         setFormData({
             ...formData,
             [name]: value,
+        });
+    };
+
+    const handleImageChange = (files) => {
+        const imagePromises = Array.from(files).map((file) => {
+            return new Promise((resolve) => {
+                const reader = new FileReader();
+                reader.onload = () => {
+                    const base64 = reader.result.split(',')[1]; 
+                    resolve(base64);
+                };
+                reader.readAsDataURL(file);
+            });
+        });
+
+        Promise.all(imagePromises).then((base64Images) => {
+            setFormData((prevData) => ({
+                ...prevData,
+                imagenes: base64Images,
+            }));
         });
     };
 
@@ -66,23 +92,11 @@ const ProductModal = ({ isOpen, onClose, product, onSave }) => {
             cantidad: '',
             precio: '',
             tipo: '',
+            descripcion: '',
+            imagenes: [], 
         });
         onClose();
     };
-
-    const convertirBase64=(archivos)=>{
-        Array.from(archivos).forEach(archivo=>{
-            var reader=new FileReader()
-            reader.readAsDataURL(archivo)
-            reader.onload=function(){
-                var arrayAuxiliar=[]
-                var base64= reader.result
-                //console.log(base64);             
-                arrayAuxiliar=base64.split(',')
-                console.log(arrayAuxiliar[1]);
-            }
-        })
-    }
 
     if (!isOpen) return null;
 
@@ -96,7 +110,9 @@ const ProductModal = ({ isOpen, onClose, product, onSave }) => {
                         <input
                             type="text"
                             name="nombre"
-                            value={formData.nombre} onChange={handleChange}  required
+                            value={formData.nombre}
+                            onChange={handleChange}
+                            required
                         />
                     </label>
                     <label>
@@ -136,9 +152,20 @@ const ProductModal = ({ isOpen, onClose, product, onSave }) => {
                         />
                     </label>
                     <label>
+                        Descripción:
+                        <textarea
+                            name="descripcion"
+                            value={formData.descripcion}
+                            onChange={handleChange}
+                            required
+                        />
+                    </label>
+                    <label>
                         Imagen:
                         <input
-                            type='file' multiple onChange={(e)=>convertirBase64(e.target.files)}
+                            type='file'
+                            multiple
+                            onChange={(e) => handleImageChange(e.target.files)}
                         />
                     </label>
 

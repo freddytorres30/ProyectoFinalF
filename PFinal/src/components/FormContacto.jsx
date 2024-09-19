@@ -5,7 +5,7 @@ function FormularioContacto() {
     return (
         <div className="container">
             <h1>Formulario de Contacto</h1>
-            
+            <p>Llena este formulario para ser contactado </p>
             <div className="borde">
                 <form id="formPc"/>
                     <div className="form-group">

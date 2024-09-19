@@ -1,20 +1,39 @@
+import React, { useEffect, useState } from 'react';
 import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
+import getProducts from '../services/GetProducts';
 
 function GridExample() {
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+
+    const fetchProducts = async () => {
+      try {
+        const data = await getProducts();
+        setProducts(data);
+      } catch (error) {
+        console.error("Error fetching products:", error);
+      }
+    };
+
+    fetchProducts();
+  }, []);
+
   return (
     <Row xs={1} md={3} className="g-4">
-      {Array.from({ length: 6 }).map((_, idx) => (
-        <Col key={idx} className="d-flex justify-content-center">
-          <Card style={{ width: '18rem', height: 'auto' }}> {/* Ajusta el ancho y alto según sea necesario */}
-            <Card.Img variant="top" src="https://www.hola.com/horizon/landscape/918cb28d3a78-pan-leche-t.jpg" />
+      {products.map((product) => (
+        <Col key={product.id} className="d-flex justify-content-center">
+          <Card style={{ width: '18rem', height: 'auto' }}>
+            <Card.Img variant="top" src={`data:image/jpeg;base64,${product.imagenes}`} />
             <Card.Body>
-              <Card.Title>Card</Card.Title>
+              <Card.Title><strong>{product.nombre}</strong></Card.Title>
               <Card.Text>
-                This is a longer card with supporting text below as a natural
-                lead-in to additional content. This content is a little bit
-                longer.
+                {product.descripcion}
+              </Card.Text>
+              <Card.Text>
+                ₡{product.precio}
               </Card.Text>
             </Card.Body>
           </Card>

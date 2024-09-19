@@ -7,6 +7,7 @@ import Contacto from '../pages/Contacto';
 import Products from '../pages/Productos';
 import Inventario from '../pages/Administrador';
 import ProtectedRoute from '../ProtectedRoute';
+import About from '../pages/AboutUs';
 
 const Routing = () => {
     return (
@@ -17,6 +18,7 @@ const Routing = () => {
                 <Route path='/Registro' element={<Register/>}/>
                 <Route path='/Contacto' element={<Contacto/>}/>
                 <Route path='/Productos' element={<Products/>}/>
+                <Route path='/SobreNosotros' element={<About/>}/>
                 <Route path='/Admin' element={<ProtectedRoute><Inventario/></ProtectedRoute>}/>
             </Routes>
         </Router>
