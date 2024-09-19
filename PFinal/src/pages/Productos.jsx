@@ -1,6 +1,7 @@
 import React from "react";
 import GridExample from "../components/productos";
 import Navbar from "../components/NavBar";
+import FilterSidebar from "../components/AsideProductos";
 
 function Products() {
     return (
@@ -12,10 +13,11 @@ function Products() {
                 <div className="linea"></div>
             </div>
             <br />
-            <div>
-            <GridExample />
+            <div className="main-content">
+                <FilterSidebar />
+                <GridExample />
             </div>
-            
+
         </div>
     )
 }

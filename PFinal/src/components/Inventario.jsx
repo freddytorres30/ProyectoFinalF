@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import '../style/Admin.css';
 import { useNavigate } from 'react-router-dom';
 import getProducts from '../services/GetProducts';
@@ -11,18 +11,33 @@ function TablaInventario() {
     const [currentProduct, setCurrentProduct] = useState(null);
     const navigate = useNavigate();
 
-    useEffect(() => {
-        async function fetchProducts() {
-            try {
-                const productosData = await getProducts();
-                setProductos(productosData);
-            } catch (error) {
-                console.error('Error al obtener los productos:', error);
-            }
-        }
+    // useEffect(() => {
+        
+    //     async function fetchProducts() {
+    //         try {
+    //             const productosData = await getProducts();
+    //             setProductos(productosData);
+    //         } catch (error) {
+    //             console.error('Error al obtener los productos:', error);
+    //         }
+    //     }
 
-        fetchProducts();
-    }, []);
+    //     fetchProducts();
+    // }, []);
+
+     const load_product=useCallback(()=>{
+      const fetchProducts = async () => {
+        try {
+            const productosData = await getProducts();
+            setProductos(productosData);
+        } catch (error) {
+          console.error("Error fetching Products", error);
+        }
+      };
+      fetchProducts()
+     })
+    
+    useEffect(()=>load_product(),[load_product])
 
     function cerrarSesion() {
         localStorage.removeItem('Autenticado');
