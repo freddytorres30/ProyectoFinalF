@@ -6,8 +6,7 @@ import Main from "../components/MainContent";
 
 function Home() {
     return(
-        <div>
-            
+        <div>          
             <Navbar/>
             <CarruselPrin/>
             <Main/>

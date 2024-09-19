@@ -9,11 +9,9 @@ function Inventario() {
         <div className="containerInv">
             <Navbar />
             <div>
-
                 <div className="linea2"></div>
                 <div className="sobreN"><h1>PRODUCTOS</h1></div>
                 <div className="linea"></div>
-
                 <div className="main-content">
                     <ProductSidebar />
                     <TablaInventario />
