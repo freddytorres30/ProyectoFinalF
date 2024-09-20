@@ -70,11 +70,21 @@ const ProductModal = ({ isOpen, onClose, product, onSave }) => {
             } else {
                 await postProducts(formData);
             }
+    
+            setFormData({
+                nombre: '',
+                cantidad: '',
+                precio: '',
+                tipo: '',
+                descripcion: '',
+                imagenes: [],
+            });
             onSave();
         } catch (error) {
             console.error('Error saving product:', error);
         }
     };
+    
 
     const handleDelete = async () => {
         if (!product) return;

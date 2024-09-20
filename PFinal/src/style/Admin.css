@@ -69,6 +69,7 @@ h1 {
 
 button:hover .button_top {
     transform: translateY(-0.33em);
+    background-color: #ff8196;
 }
 
 button:active .button_top {
@@ -102,7 +103,7 @@ button:active .button_top {
     padding: 10px;
     font-size: 16px;
     color: #333;
-    background-color: #ddd;
+    background-color: #cfcfcf;
     border: none;
     cursor: pointer;
     border-radius: 4px;
@@ -110,7 +111,7 @@ button:active .button_top {
 }
 
 .product-sidebar button:hover {
-    background-color: #ccc;
+    background-color: #ff8196;
 }
 
 .containerInv {
@@ -154,15 +155,18 @@ TablaInventario {
 }
 
 button {
-    width: 150px;
+    
     padding: 10px;
     font-size: 16px;
     color: #333;
-    background-color: #ddd;
+    background-color: #cfcfcf;
     border: none;
     cursor: pointer;
     border-radius: 4px;
     transition: background-color 0.3s;
+}
+button:hover{
+    background-color: #ff8196;
 }
 
 /* Responsive table */

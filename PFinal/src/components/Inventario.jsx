@@ -11,33 +11,19 @@ function TablaInventario() {
     const [currentProduct, setCurrentProduct] = useState(null);
     const navigate = useNavigate();
 
-    // useEffect(() => {
-        
-    //     async function fetchProducts() {
-    //         try {
-    //             const productosData = await getProducts();
-    //             setProductos(productosData);
-    //         } catch (error) {
-    //             console.error('Error al obtener los productos:', error);
-    //         }
-    //     }
+    const load_product = useCallback(() => {
+        const fetchProducts = async () => {
+            try {
+                const productosData = await getProducts();
+                setProductos(productosData);
+            } catch (error) {
+                console.error("Error fetching Products", error);
+            }
+        };
+        fetchProducts();
+    }, []);
 
-    //     fetchProducts();
-    // }, []);
-
-     const load_product=useCallback(()=>{
-      const fetchProducts = async () => {
-        try {
-            const productosData = await getProducts();
-            setProductos(productosData);
-        } catch (error) {
-          console.error("Error fetching Products", error);
-        }
-      };
-      fetchProducts()
-     })
-    
-    useEffect(()=>load_product(),[load_product])
+    useEffect(() => load_product(), [load_product]);
 
     function cerrarSesion() {
         localStorage.removeItem('Autenticado');
@@ -107,7 +93,7 @@ function TablaInventario() {
                             <td>
                                 <button onClick={() => clickEditar(producto)}>Editar</button>
                                 <button onClick={() => clickEliminar(producto.id)}>Eliminar</button>
-                            </td> 
+                            </td>
                         </tr>
                     ))}
                 </tbody>
@@ -170,7 +156,15 @@ function Modal({ product, onClose, onSave }) {
                     <label> Precio:
                         <input
                             type="number" name="precio"
-                            value={editedProduct.precio} onChange={handleInputChange}/>
+                            value={editedProduct.precio} onChange={handleInputChange} />
+                    </label>
+                    <br />
+                    <label> Descripción:
+                        <textarea
+                            name="descripcion"
+                            value={editedProduct.descripcion}
+                            onChange={handleInputChange}
+                        />
                     </label>
                     <br />
                     <button type="button" onClick={() => onSave(editedProduct)}>Guardar Cambios</button>
