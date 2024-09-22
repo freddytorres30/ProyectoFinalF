@@ -1,26 +1,37 @@
 import { useState, useEffect } from "react";
 import getUsers from "../services/GetLogin";
-import { useNavigate } from "react-router-dom";
-import { Link } from "react-router-dom"
+import { useNavigate, Link } from "react-router-dom";
 
+function Modal({ message, onClose }) {
+    return (
+        <div className="modal">
+            <div className="modal-content">
+                <span className="close" onClick={onClose}>&times;</span>
+                <p>{message}</p>
+            </div>
+        </div>
+    );
+}
 
 function FormLogin() {
     const [users, setUsers] = useState([]);
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [error, setError] = useState('');
-    const [indicator,setIndicator]=useState("none")
+    const [indicator, setIndicator] = useState("none");
+    const [modalMessage, setModalMessage] = useState('');
+    const [showModal, setShowModal] = useState(false);
     const navigate = useNavigate();
 
     useEffect(() => {
         const fetchUsers = async () => {
-            
             try {
                 const usersData = await getUsers();
                 setUsers(usersData);
             } catch (error) {
-                setError('error');
+                setModalMessage('Error al cargar usuarios');
+                setShowModal(true);
+                setTimeout(() => setShowModal(false), 1500);
             }
         };
 
@@ -30,16 +41,27 @@ function FormLogin() {
     const handleSubmit = (e) => {
         e.preventDefault();
         if (!name || !email || !password) {
-            return setIndicator("inline")
+            setIndicator("inline");
+            return;
         }
         const user = users.find(user => user.email === email && user.password === password);
         if (user) {
-            alert('Login exitoso');
-            localStorage.setItem('Autenticado',true)
-            navigate('/Admin');
+            setModalMessage('Login exitoso');
+            setShowModal(true);
+            localStorage.setItem('Autenticado', true);
+            setTimeout(() => {
+                setShowModal(false);
+                navigate('/Admin');
+            }, 1500);
         } else {
-            alert('Datos incorrectos');
+            setModalMessage('Datos incorrectos');
+            setShowModal(true);
+            setTimeout(() => setShowModal(false), 1500);
         }
+    };
+
+    const closeModal = () => {
+        setShowModal(false);
     };
 
     return (
@@ -54,7 +76,6 @@ function FormLogin() {
                             <input
                                 id="name" type="text" placeholder="Nombre de usuario"
                                 name="name"
-                                required
                                 onChange={(e) => setName(e.target.value)}
                                 value={name}
                             />
@@ -65,7 +86,6 @@ function FormLogin() {
                             <input
                                 id="email" type="email" placeholder="me@example.com"
                                 name="email"
-                                required
                                 onChange={(e) => setEmail(e.target.value)}
                                 value={email}
                             />
@@ -76,7 +96,6 @@ function FormLogin() {
                             <input
                                 id="password" type="password" placeholder="Contraseña"
                                 name="password"
-                                required
                                 onChange={(e) => setPassword(e.target.value)}
                                 value={password}
                             />
@@ -90,11 +109,11 @@ function FormLogin() {
                         <div>
                             <p>No tienes cuenta?, Click <Link to="/Registro">aquí</Link></p>
                         </div>
-
-                        {error && <p className="error">{error}</p>}
                     </form>
                 </div>
             </div>
+
+            {showModal && <Modal message={modalMessage} onClose={closeModal} />}
         </>
     );
 }

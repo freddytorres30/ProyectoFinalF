@@ -1,0 +1,11 @@
+.categorias{
+    display: flex;
+    flex-direction: column;
+    min-width: 240px;
+    background-color: rgb(230, 230, 230);
+    border-radius: 5px;
+}
+.categorias button{
+    background-color: #FFC0CB;
+    margin-top: 7px;
+}

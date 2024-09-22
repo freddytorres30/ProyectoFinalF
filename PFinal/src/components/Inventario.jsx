@@ -21,7 +21,7 @@ function TablaInventario() {
             }
         };
         fetchProducts();
-    }, []);
+    });
 
     useEffect(() => load_product(), [load_product]);
 
@@ -77,7 +77,7 @@ function TablaInventario() {
                 <thead>
                     <tr>
                         <th>Producto</th>
-                        <th>Tipo</th>
+                        <th>Categoria</th>
                         <th>Cantidad</th>
                         <th>Precio</th>
                         <th></th>
@@ -87,7 +87,7 @@ function TablaInventario() {
                     {productos.map((producto) => (
                         <tr key={producto.id}>
                             <td>{producto.nombre}</td>
-                            <td>{producto.tipo}</td>
+                            <td>{producto.categoria}</td>
                             <td>{producto.cantidad}</td>
                             <td>{producto.precio}</td>
                             <td>
@@ -141,7 +141,7 @@ function Modal({ product, onClose, onSave }) {
                         />
                     </label>
                     <br />
-                    <label> Tipo:
+                    <label> Categoria::
                         <input
                             type="text" name="tipo"
                             value={editedProduct.tipo} onChange={handleInputChange} />

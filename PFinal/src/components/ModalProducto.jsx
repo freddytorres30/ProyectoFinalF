@@ -7,7 +7,7 @@ const ProductModal = ({ isOpen, onClose, product, onSave }) => {
         nombre: '',
         cantidad: '',
         precio: '',
-        tipo: '',
+        categoria: '',
         descripcion: '',
         imagenes: [], 
     });
@@ -18,7 +18,7 @@ const ProductModal = ({ isOpen, onClose, product, onSave }) => {
                 nombre: product.nombre || '',
                 cantidad: product.cantidad || '',
                 precio: product.precio || '',
-                tipo: product.tipo || '',
+                categoria: product.categoria || '',
                 descripcion: product.descripcion || '',
                 imagenes: product.imagenes || [], 
             });
@@ -27,7 +27,7 @@ const ProductModal = ({ isOpen, onClose, product, onSave }) => {
                 nombre: '',
                 cantidad: '',
                 precio: '',
-                tipo: '',
+                categoria: '',
                 descripcion: '',
                 imagenes: [], 
             });
@@ -75,7 +75,7 @@ const ProductModal = ({ isOpen, onClose, product, onSave }) => {
                 nombre: '',
                 cantidad: '',
                 precio: '',
-                tipo: '',
+                categoria: '',
                 descripcion: '',
                 imagenes: [],
             });
@@ -101,7 +101,7 @@ const ProductModal = ({ isOpen, onClose, product, onSave }) => {
             nombre: '',
             cantidad: '',
             precio: '',
-            tipo: '',
+            categoria: '',
             descripcion: '',
             imagenes: [], 
         });
@@ -126,14 +126,14 @@ const ProductModal = ({ isOpen, onClose, product, onSave }) => {
                         />
                     </label>
                     <label>
-                        Tipo:
+                        Categoria:
                         <select
-                            name="tipo"
-                            value={formData.tipo}
+                            name="categoria"
+                            value={formData.categoria}
                             onChange={handleChange}
                             required
                         >
-                            <option value="">Selecciona un tipo</option>
+                            <option value="">Selecciona una categoria</option>
                             <option value="pan">Pan</option>
                             <option value="pan dulce">Pan Dulce</option>
                             <option value="repostería">Repostería</option>

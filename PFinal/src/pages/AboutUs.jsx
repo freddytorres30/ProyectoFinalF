@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Navbar from "../components/NavBar";
 import Nosotros from "../components/SobreNosotros";
 import FluidExample from "../components/ImagenPrincipal";
+import Footer from "../components/Footer";
 
 function About() {
     return(
@@ -10,6 +11,7 @@ function About() {
             <Navbar/>
             <Nosotros/>
             <FluidExample/>
+            <Footer/>
         </div>
     )
 }

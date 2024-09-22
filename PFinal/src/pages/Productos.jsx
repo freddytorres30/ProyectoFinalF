@@ -14,7 +14,7 @@ function Products() {
             </div>
             <br />
             <div className="main-content">
-                <FilterSidebar />
+                {/* <FilterSidebar /> */}
                 <GridExample />
             </div>
 

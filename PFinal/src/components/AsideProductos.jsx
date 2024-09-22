@@ -1,32 +1,39 @@
 // ProductSidebar.js
-import React, { useState } from 'react';
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
-import InputGroup from 'react-bootstrap/InputGroup';
+import React from 'react';
 import '../style/Admin.css';
-import ProductModal from './ModalProducto';
-import Dropdown from 'react-bootstrap/Dropdown';
+import Container from 'react-bootstrap/Container';
+import Navbar from 'react-bootstrap/Navbar';
+import Button from 'react-bootstrap/Button'; // Importa el componente Button
 
 const FilterSidebar = () => {
-
-
     return (
         <aside className="product-sidebar">
-            <h2>categorías</h2>
-            <ul>
-                <Dropdown>
-                    <Dropdown.Toggle variant="success" id="dropdown-basic">
-                        Dropdown Button
-                    </Dropdown.Toggle>
-                    <Dropdown.Menu>
-                        <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-                        <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-                        <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
-                    </Dropdown.Menu>
-                </Dropdown>
-            </ul>
-
-        </aside >
+            <h2>Categorías</h2>
+            <Navbar className="bg-body-tertiary">
+                <Container>
+                    <Button variant="link" href="#home">Pan</Button>
+                </Container>
+            </Navbar>
+            <br />
+            <Navbar className="bg-body-tertiary">
+                <Container>
+                    <Button variant="link" href="#home">Pan Dulce</Button>
+                </Container>
+            </Navbar>
+            <br />
+            <Navbar className="bg-body-tertiary">
+                <Container>
+                    <Button variant="link" href="#home">Repostería</Button>
+                </Container>
+            </Navbar>
+            <br />
+            <Navbar className="bg-body-tertiary">
+                <Container>
+                    <Button variant="link" href="#home">Pastelería</Button>
+                </Container>
+            </Navbar>
+            <br />
+        </aside>
     );
 };
 
