@@ -13,7 +13,9 @@ function Destac() {
     const fetchProducts = async () => {
       try {
         const productosData = await getProducts();
-        setProductos(productosData);
+        // Filtrar los productos destacados
+        const productosDestacados = productosData.filter(product => product.destacado);
+        setProductos(productosDestacados);
       } catch (error) {
         console.error("Error fetching Products", error);
       }
@@ -23,7 +25,6 @@ function Destac() {
 
   useEffect(() => load_product(), [load_product]);
 
-  
   const groupedProducts = [];
   for (let i = 0; i < productos.length; i += 3) {
     groupedProducts.push(productos.slice(i, i + 3));

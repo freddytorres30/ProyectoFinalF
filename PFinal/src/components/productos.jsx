@@ -5,13 +5,14 @@ import Row from 'react-bootstrap/Row';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
+
 import getProducts from '../services/GetProducts';
 import '../style/Productos.css';
-
 
 function GridExample() {
   const [products, setProductos] = useState([]);
   const [categoriaSeleccionada, setCategoriaSeleccionada] = useState('Todos');
+  const [searchTerm, setSearchTerm] = useState(''); 
 
   const load_product = useCallback(() => {
     const fetchProducts = async () => {
@@ -25,15 +26,20 @@ function GridExample() {
     fetchProducts();
   }, []);
 
-
   const categorias = ['Todos', 'pan', 'pan dulce', 'repostería', 'pastelería'];
 
   const manejarCambioCategoria = (categoria) => {
     setCategoriaSeleccionada(categoria);
   };
 
+  const manejarCambioBusqueda = (event) => {
+    setSearchTerm(event.target.value); // Actualiza el busacdo
+  };
+
   const productosFiltrados = products.filter((product) => {
-    return categoriaSeleccionada === 'Todos' || product.categoria === categoriaSeleccionada;
+    const matchesCategory = categoriaSeleccionada === 'Todos' || product.categoria === categoriaSeleccionada;
+    const matchesSearch = product.nombre.toLowerCase().includes(searchTerm.toLowerCase()); //para el buscador
+    return matchesCategory && matchesSearch; // Filtra los 2
   });
 
   useEffect(() => load_product(), [load_product]);
@@ -41,22 +47,28 @@ function GridExample() {
   return (
     <>
       <div className='categorias'>
+        <h2>Categorías</h2>
         {categorias.map((categoria) => (
           <button key={categoria} onClick={() => manejarCambioCategoria(categoria)}>
             {categoria}
           </button>
         ))}
         <div>
+          <br />
           <InputGroup className="mb-3">
             <Form.Control
               placeholder="Buscar producto"
-              aria-label="Recipient's username"
-              aria-describedby="basic-addon2"
+              value={searchTerm} // busca con el valor
+              onChange={manejarCambioBusqueda} 
+              aria-label="Buscar producto"
             />
             <Button variant="outline-secondary" id="button-addon2">
               Buscar
             </Button>
           </InputGroup>
+          <br />
+          <Form.Label>Precios</Form.Label>
+          <Form.Range />
         </div>
       </div>
 
@@ -81,8 +93,6 @@ function GridExample() {
           </Col>
         ))}
       </Row>
-
-
     </>
   );
 }

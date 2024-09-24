@@ -7,7 +7,7 @@ function DarkVariantExample() {
       <Carousel.Item>
         <img
           className="d-block w-100"
-          src="src\img\churchill.png"
+          src="src\img\churchillhd.jpeg"
           alt="First slide"
         />
        
@@ -15,7 +15,7 @@ function DarkVariantExample() {
       <Carousel.Item>
         <img
           className="d-block w-100"
-          src="src\img\borrachos.png"
+          src="src\img\borrachoshd.jpeg"
           alt="Second slide"
         />
         
@@ -23,7 +23,7 @@ function DarkVariantExample() {
       <Carousel.Item>
         <img
           className="d-block w-100"
-          src="src\img\tamal.jpeg"
+          src="src\img\tamalhd.jpeg"
           alt="Third slide"
         />
         

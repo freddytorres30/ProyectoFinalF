@@ -22,3 +22,11 @@
     width: 100%;
     /* Mantiene el ancho al 100% */
 }
+
+.carousel-control-custom {
+    color: #FF1493;
+}
+
+.carousel-control-custom:hover {
+    color: #FF69B4;
+}

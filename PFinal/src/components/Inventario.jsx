@@ -21,7 +21,7 @@ function TablaInventario() {
             }
         };
         fetchProducts();
-    });
+    }, []);
 
     useEffect(() => load_product(), [load_product]);
 
@@ -80,6 +80,7 @@ function TablaInventario() {
                         <th>Categoria</th>
                         <th>Cantidad</th>
                         <th>Precio</th>
+                        <th>Destacado</th>
                         <th></th>
                     </tr>
                 </thead>
@@ -90,6 +91,7 @@ function TablaInventario() {
                             <td>{producto.categoria}</td>
                             <td>{producto.cantidad}</td>
                             <td>{producto.precio}</td>
+                            <td>{producto.destacado ? 'Sí' : 'No'}</td>
                             <td>
                                 <button onClick={() => clickEditar(producto)}>Editar</button>
                                 <button onClick={() => clickEliminar(producto.id)}>Eliminar</button>
@@ -118,10 +120,10 @@ function Modal({ product, onClose, onSave }) {
     }, [product]);
 
     function handleInputChange(e) {
-        const { name, value } = e.target;
+        const { name, value, type, checked } = e.target;
         setEditedProduct({
             ...editedProduct,
-            [name]: value,
+            [name]: type === 'checkbox' ? checked : value,
         });
     }
 
@@ -141,10 +143,10 @@ function Modal({ product, onClose, onSave }) {
                         />
                     </label>
                     <br />
-                    <label> Categoria::
+                    <label> Categoria:
                         <input
-                            type="text" name="tipo"
-                            value={editedProduct.tipo} onChange={handleInputChange} />
+                            type="text" name="categoria"
+                            value={editedProduct.categoria} onChange={handleInputChange} />
                     </label>
                     <br />
                     <label> Cantidad:
@@ -157,6 +159,15 @@ function Modal({ product, onClose, onSave }) {
                         <input
                             type="number" name="precio"
                             value={editedProduct.precio} onChange={handleInputChange} />
+                    </label>
+                    <br />
+                    <label> Destacado:
+                        <input
+                            type="checkbox"
+                            name="destacado"
+                            checked={editedProduct.destacado}
+                            onChange={handleInputChange}
+                        />
                     </label>
                     <br />
                     <label> Descripción:

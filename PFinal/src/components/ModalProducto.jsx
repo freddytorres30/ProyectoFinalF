@@ -9,7 +9,8 @@ const ProductModal = ({ isOpen, onClose, product, onSave }) => {
         precio: '',
         categoria: '',
         descripcion: '',
-        imagenes: [], 
+        imagenes: [],
+        destacado: false, 
     });
 
     useEffect(() => {
@@ -20,7 +21,8 @@ const ProductModal = ({ isOpen, onClose, product, onSave }) => {
                 precio: product.precio || '',
                 categoria: product.categoria || '',
                 descripcion: product.descripcion || '',
-                imagenes: product.imagenes || [], 
+                imagenes: product.imagenes || [],
+                destacado: product.destacado || false, 
             });
         } else {
             setFormData({
@@ -29,16 +31,17 @@ const ProductModal = ({ isOpen, onClose, product, onSave }) => {
                 precio: '',
                 categoria: '',
                 descripcion: '',
-                imagenes: [], 
+                imagenes: [],
+                destacado: false, 
             });
         }
     }, [product]);
 
     const handleChange = (e) => {
-        const { name, value } = e.target;
+        const { name, value, type, checked } = e.target;
         setFormData({
             ...formData,
-            [name]: value,
+            [name]: type === 'checkbox' ? checked : value, 
         });
     };
 
@@ -78,13 +81,13 @@ const ProductModal = ({ isOpen, onClose, product, onSave }) => {
                 categoria: '',
                 descripcion: '',
                 imagenes: [],
+                destacado: false,
             });
             onSave();
         } catch (error) {
             console.error('Error saving product:', error);
         }
     };
-    
 
     const handleDelete = async () => {
         if (!product) return;
@@ -103,7 +106,8 @@ const ProductModal = ({ isOpen, onClose, product, onSave }) => {
             precio: '',
             categoria: '',
             descripcion: '',
-            imagenes: [], 
+            imagenes: [],
+            destacado: false, 
         });
         onClose();
     };
@@ -176,6 +180,15 @@ const ProductModal = ({ isOpen, onClose, product, onSave }) => {
                             type='file'
                             multiple
                             onChange={(e) => handleImageChange(e.target.files)}
+                        />
+                    </label>
+                    <label>
+                        Destacado:
+                        <input
+                            type="checkbox"
+                            name="destacado"
+                            checked={formData.destacado}
+                            onChange={handleChange}
                         />
                     </label>
 
