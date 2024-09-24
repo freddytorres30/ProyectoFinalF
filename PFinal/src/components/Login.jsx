@@ -103,7 +103,8 @@ function FormLogin() {
                         <div>
                             <span id="vacios" style={{ display: indicator }} className="vacios">Completa todos los datos</span>
                         </div>
-                        <button className="btn btn--form" type="submit">
+                        <button className="btn btn--form" type="submit"
+                        style={{ backgroundColor: '#FF1493' }}>
                             Log in
                         </button>
                         <div>

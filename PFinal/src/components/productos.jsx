@@ -14,7 +14,7 @@ function GridExample() {
   const [categoriaSeleccionada, setCategoriaSeleccionada] = useState('Todos');
   const [searchTerm, setSearchTerm] = useState(''); 
 
-  const load_product = useCallback(() => {
+  const load_product=useCallback(()=>{
     const fetchProducts = async () => {
       try {
         const productosData = await getProducts();
@@ -23,8 +23,10 @@ function GridExample() {
         console.error("Error fetching Products", error);
       }
     };
-    fetchProducts();
-  }, []);
+    fetchProducts()
+   })
+  
+  useEffect(()=>load_product(),[load_product])
 
   const categorias = ['Todos', 'pan', 'pan dulce', 'repostería', 'pastelería'];
 
@@ -42,7 +44,6 @@ function GridExample() {
     return matchesCategory && matchesSearch; // Filtra los 2
   });
 
-  useEffect(() => load_product(), [load_product]);
 
   return (
     <>
@@ -75,7 +76,9 @@ function GridExample() {
       <Row xs={1} sm={2} md={3} lg={3} className="g-4">
         {productosFiltrados.map((product) => (
           <Col key={product.id} className="d-flex justify-content-center">
-            <Card style={{ minWidth: '345px', width: '100%', height: 'auto' }}>
+            <Card style={{ minWidth: '345px', width: '100%', height: 'auto',
+              boxShadow: '0 5px 9px rgba(0, 0, 0, 0.2)',transition: '0.3s',border: 'solid #ff8196 1px'
+             }}>
               <Card.Img variant="top" src={`data:image/jpeg;base64,${product.imagenes}`} />
               <Card.Body>
                 <Card.Title><strong>{product.nombre}</strong></Card.Title>

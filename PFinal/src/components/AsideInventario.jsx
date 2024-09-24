@@ -27,7 +27,7 @@ const ProductSidebar = () => {
                 <li>
                     <button onClick={openModal}>Crear Producto</button>
                 </li>
-                <Dropdown>
+                {/* <Dropdown>
                     <Dropdown.Toggle variant="success" id="dropdown-basic">
                         Dropdown Button
                     </Dropdown.Toggle>
@@ -36,7 +36,7 @@ const ProductSidebar = () => {
                         <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
                         <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
                     </Dropdown.Menu>
-                </Dropdown>
+                </Dropdown> */}
             </ul>
             <ProductModal
                 isOpen={isModalOpen}

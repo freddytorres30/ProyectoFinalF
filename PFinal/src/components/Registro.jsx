@@ -112,7 +112,8 @@ function FormRegister() {
                         <div>
                             <span id="vacios" style={{ display: indicator }} className="vacios">Completa todos los datos</span>
                         </div>
-                        <button className="btn btn--reg" type="submit">
+                        <button className="btn btn--reg" type="submit"
+                        style={{ backgroundColor: '#FF1493' }}>
                             Registro
                         </button>
                     </form>

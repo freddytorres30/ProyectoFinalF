@@ -9,21 +9,21 @@ import '../style/Productos.css';
 function Destac() {
   const [productos, setProductos] = useState([]);
 
-  const load_product = useCallback(() => {
+
+  const load_product=useCallback(()=>{
     const fetchProducts = async () => {
       try {
         const productosData = await getProducts();
-        // Filtrar los productos destacados
         const productosDestacados = productosData.filter(product => product.destacado);
         setProductos(productosDestacados);
       } catch (error) {
         console.error("Error fetching Products", error);
       }
     };
-    fetchProducts();
-  }, []);
-
-  useEffect(() => load_product(), [load_product]);
+    fetchProducts()
+   })
+  
+  useEffect(()=>load_product(),[load_product])
 
   const groupedProducts = [];
   for (let i = 0; i < productos.length; i += 3) {
@@ -37,7 +37,9 @@ function Destac() {
           <Row className="g-4 justify-content-center">
             {group.map((product) => (
               <Col key={product.id} xs={6} sm={4}>
-                <Card style={{ minWidth: '150px', width: '100%' }}>
+                <Card style={{ minWidth: '150px', width: '100%',
+                  boxShadow: '0 5px 9px rgba(0, 0, 0, 0.2)',transition: '0.3s',border: 'solid #ff8196 1px'
+                 }}>
                   <Card.Img variant="top" src={`data:image/jpeg;base64,${product.imagenes}`} />
                   <Card.Body>
                     <Card.Title><strong>{product.nombre}</strong></Card.Title>

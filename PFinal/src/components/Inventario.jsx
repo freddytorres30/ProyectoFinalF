@@ -8,23 +8,26 @@ import deleteProduct from '../services/DeleteProducts';
 function TablaInventario() {
     const [productos, setProductos] = useState([]);
     const [showModal, setShowModal] = useState(false);
+    const [showConfirmModal, setShowConfirmModal] = useState(false);
     const [currentProduct, setCurrentProduct] = useState(null);
+    const [productToDelete, setProductToDelete] = useState(null);
     const navigate = useNavigate();
 
-    const load_product = useCallback(() => {
-        const fetchProducts = async () => {
-            try {
-                const productosData = await getProducts();
-                setProductos(productosData);
-            } catch (error) {
-                console.error("Error fetching Products", error);
-            }
-        };
-        fetchProducts();
-    }, []);
 
-    useEffect(() => load_product(), [load_product]);
-
+     const load_product=useCallback(()=>{
+      const fetchProducts = async () => {
+        try {
+          const productosData = await getProducts();
+          setProductos(productosData);
+        } catch (error) {
+          console.error("Error fetching Products", error);
+        }
+      };
+      fetchProducts()
+     })
+    
+    useEffect(()=>load_product(),[load_product])
+    
     function cerrarSesion() {
         localStorage.removeItem('Autenticado');
         navigate('/');
@@ -57,17 +60,31 @@ function TablaInventario() {
         }
     }
 
-    async function clickEliminar(productId) {
-        try {
-            await deleteProduct(productId);
-            setProductos(prevProducts =>
-                prevProducts.filter(product => product.id !== productId)
-            );
-        } catch (error) {
-            console.error('Error al eliminar el producto:', error);
+    function clickEliminar(productId) {
+        setProductToDelete(productId);
+        setShowConfirmModal(true);
+    }
+
+    async function confirmDelete() {
+        if (productToDelete) {
+            try {
+                await deleteProduct(productToDelete);
+                setProductos(prevProducts =>
+                    prevProducts.filter(product => product.id !== productToDelete)
+                );
+                setShowConfirmModal(false);
+                setProductToDelete(null);
+            } catch (error) {
+                console.error('Error al eliminar el producto:', error);
+            }
         }
     }
 
+    function handleCloseConfirmModal() {
+        setShowConfirmModal(false);
+        setProductToDelete(null);
+    }
+    
     return (
         <div className="containerI">
             <button className="cerrar" onClick={cerrarSesion}>Cerrar Sesión</button>
@@ -107,6 +124,14 @@ function TablaInventario() {
                     product={currentProduct}
                     onClose={handleCloseModal}
                     onSave={guardar} />
+            )}
+
+            {/* Modal de confirmación de eliminación */}
+            {showConfirmModal && (
+                <ConfirmModal
+                    onClose={handleCloseConfirmModal}
+                    onConfirm={confirmDelete}
+                />
             )}
         </div>
     );
@@ -180,6 +205,19 @@ function Modal({ product, onClose, onSave }) {
                     <br />
                     <button type="button" onClick={() => onSave(editedProduct)}>Guardar Cambios</button>
                 </form>
+            </div>
+        </div>
+    );
+}
+
+function ConfirmModal({ onClose, onConfirm }) {
+    return (
+        <div className="modal">
+            <div className="modal-content">
+                <span className="close" onClick={onClose}>&times;</span>
+                <p>¿Estás seguro de que deseas eliminar este producto?</p>
+                <button onClick={onConfirm}>Sí, eliminar</button>
+                <button onClick={onClose}>Cancelar</button>
             </div>
         </div>
     );

@@ -2,6 +2,7 @@ import React from "react";
 import GridExample from "../components/productos";
 import Navbar from "../components/NavBar";
 import FilterSidebar from "../components/AsideProductos";
+import Footer from "../components/Footer";
 
 function Products() {
     return (
@@ -14,10 +15,9 @@ function Products() {
             </div>
             <br />
             <div className="main-content">
-                {/* <FilterSidebar /> */}
                 <GridExample />
             </div>
-
+            <Footer/>
         </div>
     )
 }
