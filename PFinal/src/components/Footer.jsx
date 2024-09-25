@@ -26,7 +26,7 @@ const Footer = () => {
             </a>
           </li>
           <li>
-            <a href="https://wa.me/50683045484" target="_blank" rel="noopener noreferrer"> {/* Cambia el número por el tuyo */}
+            <a href="https://wa.me/50683045484" target="_blank" rel="noopener noreferrer">
               <FaWhatsapp /> WhatsApp
             </a>
           </li>

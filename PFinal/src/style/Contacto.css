@@ -27,14 +27,17 @@
     margin-left: auto;
     margin-right: auto;
     margin-top: 30px;
-
+    width: 600px;
+    height: 400px;
 }
 .textAbout{
-    width: 800px;
+    width: 1000px;
     display: flex;
     border: solid #ff8196 3px;
     border-radius: 30px;
     padding: 30px;
+    display: flex;
+    flex-direction: column;
 }
 .textContact{
     width: 800px;

@@ -68,7 +68,7 @@ function FormLogin() {
         <>
             <div className="center">
                 <div className="containerL">
-                    <h2 className="login-title">Log in</h2>
+                    <h2 className="login-title">Inicio de sesión</h2>
 
                     <form className="login-form" onSubmit={handleSubmit}>
                         <div>
@@ -105,7 +105,7 @@ function FormLogin() {
                         </div>
                         <button className="btn btn--form" type="submit"
                         style={{ backgroundColor: '#FF1493' }}>
-                            Log in
+                            Iniciar sesión
                         </button>
                         <div>
                             <p>No tienes cuenta?, Click <Link to="/Registro">aquí</Link></p>

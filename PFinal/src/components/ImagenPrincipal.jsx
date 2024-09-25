@@ -2,7 +2,7 @@ import Image from 'react-bootstrap/Image';
 import '../style/Contacto.css'
 
 function FluidExample() {
-  return <Image src="https://www.hola.com/horizon/landscape/918cb28d3a78-pan-leche-t.jpg" fluid width={500} className='imgContacto'/>;
+  return <Image src="src\img\Betterimage.ai_1727234713130.jpeg" fluid width={400} className='imgContacto'/>;
 }
 
 export default FluidExample;
