@@ -13,46 +13,60 @@
     align-items: center;
     flex-direction: column;
 }
+
 .mapaCont {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     margin-top: 30px;
+    width: 90%; /* Cambiado a un porcentaje para responsividad */
+    max-width: 1200px; 
+    margin: 30px auto; 
+}
+
+.mapaCont img {
+    width: 100%; 
+    height: auto; 
+    border-radius: 20px; 
 }
 
 .imgContacto {
     border-radius: 30px;
     display: block;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 30px;
-    width: 600px;
-    height: 400px;
+    margin: 30px auto; 
+    width: 80%; 
+    max-width: 600px; 
+    height: auto; 
 }
-.textAbout{
-    width: 1000px;
+
+.textAbout {
+    width: 90%; /* Cambiado a un porcentaje */
+    max-width: 1000px; /* Mantiene un tamaño máximo */
     display: flex;
     border: solid #ff8196 3px;
     border-radius: 30px;
     padding: 30px;
-    display: flex;
     flex-direction: column;
+    margin: 0 auto; /* Centrado */
 }
-.textContact{
-    width: 800px;
+
+.textContact {
+    width: 90%; /* Cambiado a un porcentaje */
+    max-width: 800px; /* Mantiene un tamaño máximo */
     display: flex;
     border: solid #ff8196 3px;
     border-radius: 30px;
     padding: 30px;
-    display: flex;
     flex-direction: column;
+    margin: 0 auto; /* Centrado */
 }
-.textContact a{
+
+.textContact a {
     text-decoration: none;
 }
 
-/*formulario*/
+/* Formulario */
 .container {
     max-width: 600px;
     margin: 0 auto;
@@ -62,40 +76,39 @@
     margin: 30px 20px 5px 20px;
     color: #000000;
     letter-spacing: -1px;
-    align-items: center;
     padding-left: 30px;
     font-family: PT Sans, sans-serif;
     font-size: 32px;
-    font-style: normal;
     font-weight: bold;
-    display: flex;
-    position: relative;
-    justify-content: center;
+    text-align: center; /* Centrado */
 }
-.linea{
+
+.linea {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 4px;
     width: 460px;
     background: linear-gradient(90deg, #ffffff, #ff8196, #ffffff);
-    margin: 0px 80px 0px 80px;
+    margin: 0px 80px;
 }
+
 @media (max-width: 600px) {
     .linea {
-        width: 95%; 
-        margin: 0 2.5%; 
+        width: 95%;
+        margin: 0 2.5%;
     }
 }
-.linea2{
+
+.linea2 {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 4px;
     width: 100%;
     background: linear-gradient(90deg, #FFC0CB, #ff8196, #FFC0CB);
-    
 }
+
 .borde {
     border: 1px solid #FFC0CB;
     border-radius: 20px;
@@ -115,41 +128,20 @@
 .form-group select,
 .form-group textarea {
     width: 100%;
-    padding: 8px;
+    padding: 10px; /* Simplificado */
     box-sizing: border-box;
     border: 1px solid #69696965;
     border-radius: 10px;
     outline: 0;
-    padding: 10px 10px 20px;
     color: rgb(0, 0, 0);
     cursor: text;
     font-size: .9em;
-    top: 15px;
-    left: 10px;
 }
-.consulta input{
+
+.consulta input {
     height: 120px;
     width: 100%;
-    padding: 8px;
-    box-sizing: border-box;
-    border: 1px solid #69696965;
-    border-radius: 10px;
-    outline: 0;
-    padding: 10px 10px 20px;
-    color: rgb(0, 0, 0);
-    cursor: text;
-    font-size: .9em;
-    top: 15px;
-    left: 10px;
-}
-
-.form-group textarea {
-    color: black;
-}
-
-.form-group input[type="checkbox"] {
-    width: auto;
-    cursor: pointer;
+    padding: 10px; /* Simplificado */
 }
 
 .form-group textarea {
@@ -178,7 +170,6 @@
 
 .submit-btn {
     border: none;
-    outline: none;
     background-color: royalblue;
     padding: 10px;
     border-radius: 10px;
@@ -195,16 +186,10 @@
 
 .check label {
     margin-left: 10px;
-    margin-bottom: 0px;
     font-size: 16px;
 }
 
-.error-message {
-    color: red;
-    font-size: small;
-    display: none;
-}
-
+.error-message,
 .vacios {
     color: red;
     font-size: small;
@@ -221,7 +206,6 @@
     height: 100%;
     overflow: auto;
     background-color: rgba(0, 0, 0, 0.4);
-    /* Fondo oscuro con opacidad */
 }
 
 .modal-content {
@@ -229,12 +213,9 @@
     margin: 15% auto;
     padding: 20px;
     border: 1px solid #888;
-    width: 50%;
-    /* Ajusta el ancho del modal */
-    max-width: 500px;
-    /* Tamaño máximo del modal */
+    width: 90%; /* Cambiado a un porcentaje */
+    max-width: 500px; /* Tamaño máximo */
     border-radius: 8px;
-    /* Bordes redondeados */
 }
 
 .close {
@@ -248,9 +229,9 @@
 .close:hover,
 .close:focus {
     color: #000;
-    text-decoration: none;
 }
-.send{
+
+.send {
     background-color: #ff149170;
     width: 100%;
     padding: 10px;
@@ -262,7 +243,9 @@
     transition: background-color 0.3s;
 }
 
+/* Modal styling */
 .modal {
+    display: none;
     position: fixed;
     top: 0;
     left: 0;
@@ -273,13 +256,12 @@
     justify-content: center;
     align-items: center;
     z-index: 1000;
-  }
-  
-  .modal-content {
+}
+
+.modal-content {
     background-color: white;
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     text-align: center;
-  }
-  
+}

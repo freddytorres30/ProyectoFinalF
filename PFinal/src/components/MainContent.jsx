@@ -30,8 +30,8 @@ function Main() {
             <h1>¡Tu Pan Fresco Todos los Días!</h1>
             <br />
             <div className='promo'>
-                <div><img src="src\img\Betterimage.ai_1727240966331.jpeg" alt="" width={520} /></div>
-                <div className='mainText'><p>Imagina despertar cada mañana con el delicioso aroma del pan recién horneado llenando tu hogar. No hay nada como la textura crujiente de la corteza y la suavidad del interior. Ya sea que prefieras un baguette dorado, un delicioso pan dulce para tu café de la tarde, disfrutar de pan fresco todos los días no solo es un placer, sino también una forma de nutrir tu cuerpo y alma. Con recetas sencillas y ingredientes de calidad, puedes hacer de cada bocado una celebración.</p></div>
+                <div><img src="src\img\Betterimage.ai_1727240966331.jpeg" alt="" width={550} /></div>
+                <div className='mainText'><p>Imagina despertar cada mañana con el delicioso aroma del pan recién horneado llenando tu hogar. No hay nada como la textura crujiente de la corteza y la suavidad del interior. Ya sea que prefieras un baguette dorado, un delicioso pan dulce, disfrutar de pan fresco todos los días no solo es un placer, sino también una forma de nutrir tu cuerpo y alma. Con recetas sencillas y ingredientes de calidad, puedes hacer de cada bocado una celebración.</p></div>
             </div>
 
         </div>

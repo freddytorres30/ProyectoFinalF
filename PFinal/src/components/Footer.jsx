@@ -31,7 +31,7 @@ const Footer = () => {
             </a>
           </li>
           <li>
-            <a href="tel:+50626640178"> {/* Cambia el número por el tuyo */}
+            <a href="tel:+50626640178"> 
               <FaPhone /> Llama
             </a>
           </li>

@@ -3,7 +3,7 @@ import React from 'react';
 import '../style/Admin.css';
 import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
-import Button from 'react-bootstrap/Button'; // Importa el componente Button
+import Button from 'react-bootstrap/Button';
 
 const FilterSidebar = () => {
     return (

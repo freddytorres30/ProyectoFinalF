@@ -48,9 +48,9 @@ const ProductModal = ({ isOpen, onClose, product, onSave }) => {
     const handleImageChange = (files) => {
         const imagePromises = Array.from(files).map((file) => {
             return new Promise((resolve) => {
-                const reader = new FileReader();
+                const reader = new FileReader(); //como una api que permite leer el archivo
                 reader.onload = () => {
-                    const base64 = reader.result.split(',')[1]; 
+                    const base64 = reader.result.split(',')[1]; //extrae solo la parte codificada en Base64
                     resolve(base64);
                 };
                 reader.readAsDataURL(file);
@@ -89,15 +89,15 @@ const ProductModal = ({ isOpen, onClose, product, onSave }) => {
         }
     };
 
-    const handleDelete = async () => {
-        if (!product) return;
-        try {
-            await postProducts({ ...product, _method: 'DELETE' });
-            onSave();
-        } catch (error) {
-            console.error('Error deleting product:', error);
-        }
-    };
+    // const handleDelete = async () => {
+    //     if (!product) return;
+    //     try {
+    //         await postProducts({ ...product, _method: 'DELETE' });
+    //         onSave();
+    //     } catch (error) {
+    //         console.error('Error deleting product:', error);
+    //     }
+    // };
 
     const handleCancel = () => {
         setFormData({

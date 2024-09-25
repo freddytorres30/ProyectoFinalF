@@ -118,16 +118,16 @@ function TablaInventario() {
                 </tbody>
             </table>
 
-            {/* Modal de edición */}
-            {showModal && currentProduct && (
+            
+            {showModal && currentProduct && (  //Modal de edicion 
                 <Modal
                     product={currentProduct}
                     onClose={handleCloseModal}
                     onSave={guardar} />
             )}
 
-            {/* Modal de confirmación de eliminación */}
-            {showConfirmModal && (
+            
+            {showConfirmModal && (  //Modal  confirmacin de elimincion
                 <ConfirmModal
                     onClose={handleCloseConfirmModal}
                     onConfirm={confirmDelete}
@@ -136,7 +136,7 @@ function TablaInventario() {
         </div>
     );
 }
-
+//modal editar
 function Modal({ product, onClose, onSave }) {
     const [editedProduct, setEditedProduct] = useState(product);
 
@@ -147,7 +147,7 @@ function Modal({ product, onClose, onSave }) {
     function handleInputChange(e) {
         const { name, value, type, checked } = e.target;
         setEditedProduct({
-            ...editedProduct,
+            ...editedProduct,   //copia las propiedades
             [name]: type === 'checkbox' ? checked : value,
         });
     }
@@ -209,7 +209,7 @@ function Modal({ product, onClose, onSave }) {
         </div>
     );
 }
-
+//confirma eliminar
 function ConfirmModal({ onClose, onConfirm }) {
     return (
         <div className="modal">
